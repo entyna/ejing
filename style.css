@@ -1,0 +1,107 @@
+:root {
+  
+}
+
+/* Removing blue highlight of buttons on mobile */
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+a:focus,a:visited,a:active{
+  outline: none;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  border: none;
+}
+
+/* General */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: -webkit-fill-available;
+  /* width: 100%; */
+  overflow: hidden;
+}
+body {
+  text-rendering: optimizeSpeed;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+main {
+  height: 100%;
+}
+
+#button-container, main{
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+#button-container{
+  /* background-color: rgba(171, 174, 255, 0.5); */
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+}
+#sketch-container{
+  height: 100%;
+}
+canvas {
+  width: 100% !important;
+  height: 100dvh !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+button {
+  cursor: pointer;
+  background: none;
+  /* background-color: rgba(43, 226, 131, 0.5); */
+  width: 100%;
+  height: 4%;
+  color: rgba(0, 0, 0); /*zatím průhledné číslice, než vymyslím, co s nimi*/
+}

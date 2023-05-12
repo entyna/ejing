@@ -3,7 +3,8 @@ let particles = [];
 let startTime = 0;
 let dur = 2000; // in milliseconds
 let pg;
-let cg;
+let HH, HM, MH, MM, ME, EM, EE, EH, HE;
+//let cg;
 
 let points = [
    [1, 0],
@@ -24,49 +25,43 @@ function updatePoints(yaoValues) {
   points[4][0] = yaoValues[4];
   points[5][0] = yaoValues[5];
   
-  clearCanvas();
+  //clearCanvas();
 }
 
-function clearCanvas() {
-  clear();
-  background(0);
-}
+// function clearCanvas() {
+//   clear();
+//   background(0);
+// }
 
 function setup() {
   var canvasDiv = document.getElementById('sketch-container');
   var divHeight = canvasDiv.offsetHeight;
   var canvas = createCanvas(windowWidth, divHeight);
   canvas.parent('sketch-container');
-  pixelDensity(1);
+  //pixelDensity(1);
   pg = createGraphics(width, height);
-  background(0);
-  cg = createGraphics(width, height);
-  cg.pixelDensity(0.01);
+  
+  //cg = createGraphics(width, height);
+  //cg.pixelDensity(0.01);
+  let hMarg = height / 12;
+  let hField = height / 6;
+  HH = new Field(pg, width * 0.7, width * 0.2, hMarg, hField, 5);
+  MH = new Field(pg, width * 0.2, width * 0.2, hMarg + hField, hField, 5);
+  HM = new Field(pg, width * 0.6, width * 0.2, hMarg + hField, hField, 5);
+  EH = new Field(pg, width * 0.1, width * 0.2, hMarg + 2 * hField, hField, 5);
+  HE = new Field(pg, width * 0.2, width * 0.2, hMarg + 2 * hField, hField, 5);
+  MM = new Field(pg, width * 0.57, width * 0.2, hMarg + 2 * hField, hField, 5);
+  EM = new Field(pg, width * 0.2, width * 0.2, hMarg + 3 * hField, hField, 5);
+  ME = new Field(pg, width * 0.6, width * 0.2, hMarg + 3 * hField, hField, 5);
+  EE = new Field(pg, width * 0.7, width * 0.2, hMarg + 4 * hField, hField, 5);
 }
 
 function draw() {
   background(0);
   pg.background(255);
-
-  pgRectangles();
-
-  // // Horizontal lines in pg
-  // pg.stroke(0);
-  // pg.strokeWeight(2);
-  // let spacing = height / 6;
-  // let marg = height / 12;
-  // for (let i = 0; i < 6; i++) {
-  //   pg.line(0, marg, width, marg);
-  //   marg += spacing;
-  // }
-  
-  
-  //pgGraph();
-
-  //chaoticBalls();
-  
+  pgFields();
   //image(pg, 0, 0);
-  graphLine();
+  
 
   // Add new particles
   if (particles.length < 100) {
@@ -85,122 +80,57 @@ function draw() {
       particles.splice(i, 1);
     }
   }
-  //cg.background(0);
-  cg.clear();
-  for (let x = 0; x < pg.width; x+=60) {
-    for (let y = 0; y < pg.height; y+=40) {
-      let color = pg.get(x, y); // Get the color of the pixel
-      
-      // Check if the color is white (255, 255, 255)
-      if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
-        cg.fill(250);
-        cg.noStroke();
-        //let noiseVal = noise(frameCount * 0.005);
-        //diameter = map(noiseVal, 0, 1, 10, 100);
-        cg.circle(x, y, 50);
-      }
-    }
-  }
-  
-  image(cg, 0, 0);
+
+  graphLine();
 }
 
 function windowResized() {
    resizeCanvas(windowWidth, windowHeight);
- }
-
-function chaoticBalls() {
-  for (i = 0; i < 20; i++) {
-    x = random(width);
-    y = random(height);
-    size = random(5,20);
-    push();
-    pg.fill(0);
-    pg.circle(x, y, size);
-    pop();
-  }
 }
 
-function pgRectangles() {
-  let hRect = pg.height/6;
-  let marg = pg.height/12
-  pg.push();
-  pg.noStroke();
-  pg.blendMode(MULTIPLY);
-  pg.fill(0);
-  pg.rect(0, 0, pg.width, marg);
-  pg.rect(0, pg.height - marg, pg.width, marg);
-  pg.fill(50);
-  if (points[0][0] == 0) {
-    pg.rect(0, marg+hRect*4, pg.width, hRect);
-    pg.rect(0, marg+hRect*3, pg.width/2, hRect);
-    pg.rect(0, marg+hRect*2, pg.width/3, hRect);
-  }
-  if (points[1][0] == 0) {
-    pg.rect(0, marg+hRect, pg.width/2, hRect);
-    pg.rect(pg.width/1.5, marg+hRect*2, pg.width/3, hRect);
-    pg.rect(pg.width/2, marg+hRect*3, pg.width/2, hRect);
-  }
-  if (points[2][0] == 0) {
-    pg.rect(0, marg, pg.width, hRect);
-    pg.rect(pg.width/2, marg+hRect, pg.width/2, hRect);
-    pg.rect(pg.width/3, marg+hRect*2, pg.width/3, hRect);
-  }
-  pg.fill(100);
-  if (points[3][0] == 0) {
-    pg.rect(0, marg+hRect*4, pg.width, hRect);
-    pg.rect(pg.width/2, marg+hRect*3, pg.width/2, hRect);
-    pg.rect(pg.width/3, marg+hRect*2, pg.width/3, hRect);
-  }
-  if (points[4][0] == 0) {
-    pg.rect(0, marg+hRect*3, pg.width/2, hRect);
-    pg.rect(pg.width/1.5, marg+hRect*2, pg.width/3, hRect);
-    pg.rect(pg.width/2, marg+hRect, pg.width/2, hRect);
-  }
-  if (points[5][0] == 0) {
-    pg.rect(0, marg+hRect*2, pg.width/3, hRect);
-    pg.rect(0, marg+hRect, pg.width/2, hRect);
-    pg.rect(0, marg, pg.width, hRect);
-  }
-  pg.pop();
+//function yangLowDen() {
+  //cg.background(0);
+  // cg.clear();
+  // for (let x = 0; x < pg.width; x+=60) {
+  //   for (let y = 0; y < pg.height; y+=40) {
+  //     let color = pg.get(x, y); // Get the color of the pixel
+      
+  //     // Check if the color is white (255, 255, 255)
+  //     if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
+  //       cg.fill(250);
+  //       cg.noStroke();
+  //       //let noiseVal = noise(frameCount * 0.005);
+  //       //diameter = map(noiseVal, 0, 1, 10, 100);
+  //       cg.circle(x, y, 50);
+  //     }
+  //   }
+  // }
   
+  // image(cg, 0, 0);
+//}
+
+function pgFields() {
+  pg.stroke(0);
+  pg.strokeWeight(2);
+  pg.fill(points[2][0]*255, 100, points[5][0]*255);
+  HH.show();
+  pg.fill(points[1][0]*255, 100, points[5][0]*255);
+  MH.show();
+  pg.fill(points[2][0]*255, 100, points[4][0]*255);
+  HM.show();
+  pg.fill(points[0][0]*255, 100, points[5][0]*255);
+  EH.show();
+  pg.fill(points[2][0]*255, 100, points[3][0]*255);
+  HE.show();
+  pg.fill(points[1][0]*255, 100, points[4][0]*255);
+  MM.show();
+  pg.fill(points[0][0]*255, 100, points[4][0]*255);
+  EM.show();
+  pg.fill(points[1][0]*255, 100, points[3][0]*255);
+  ME.show();
+  pg.fill(points[0][0]*255, 100, points[3][0]*255);
+  EE.show();
 }
-
-function pgGraph() {
-
-  let xScale = width*0.9;
-  let yScale = height/6;
-  let xShift = width*0.05;
-  let yShift = height/12;
-  
-  // tady byly bodíky
-
-  // Moving Object
-  let nextPoint = (currentPoint + 1) % points.length;
-  let distance = dist(points[currentPoint][0], points[currentPoint][1], points[nextPoint][0], points[nextPoint][1]);
-
-  let progress = (millis() - startTime) / dur;
-  let objX = lerp(points[currentPoint][0] * xScale + xShift, points[nextPoint][0] * xScale + xShift, progress / distance);
-  let objY = lerp(pg.height - points[currentPoint][1] * yScale - yShift, pg.height -
-points[nextPoint][1] * yScale - yShift, progress / distance);
-  
-  if (progress >= distance) {
-    currentPoint = nextPoint;
-    startTime = millis();
-  }
-
-  if (currentPoint === points.length - 1 && objX > pg.width/2) {
-    currentPoint = 0;
-    startTime = millis();
-  }
-  
-  pg.fill(0);
-  pg.push();
-  pg.rectMode(CENTER);
-  pg.rect(objX, objY, pg.width/2, 10);
-  pg.pop();
-}
-
 function graphLine() {
   // linka nahoře
   let xScale = width*0.9;

@@ -1,6 +1,5 @@
 class Particle {
     constructor() {
-      // Check if initial position is in black area
       let isInBlack = false;
       while (!isInBlack) {
         this.pos = createVector(random(width), random(height));
@@ -22,50 +21,46 @@ class Particle {
       this.size = 3;
       this.opacity = 255;
       this.isStopped = false;
+
+      // Precompute random angle for YIN particles
+    this.yinAngle = random(TWO_PI);
     }
   
     update() {
       let c = pg.get(floor(this.pos.x), floor(this.pos.y));
-      
-      if (red(c) == 0 && green(c) == 0 && blue(c) == 0) {
-        // Move randomly in black areas
-        this.acc = p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * TWO_PI)
-                          .mult(0.2);
-        this.vel.add(this.acc);
-        this.vel.limit(this.maxSpeed);
-        this.pos.add(this.vel);
-        
-      } else if (red(c) == 0 && green(c) == 100 && blue(c) == 0) {
-        // Move slowly and chaoticly in dark areas
-          this.acc = p5.Vector.fromAngle(random(this.pos.x * 0.05, this.pos.y * 0.05) * TWO_PI)
-                          .mult(0.2);
-          this.vel.add(this.acc);
-          this.vel.limit(this.yinSpeed);
-          this.pos.add(this.vel);
-
-      } else if (red(c) == 255 && green(c) == 100 && blue(c) == 0) {
-        // Flow upwards in gray areas
-        this.acc = createVector(0, 0.1);
-        this.vel.add(this.acc);
-        this.vel.limit(this.maxSpeed);
-        this.pos.add(this.vel);
-        this.isStopped = true;
-        
-      } else if (red(c) == 0 && green(c) == 100 && blue(c) == 255) {
-        // Flow downwards in white areas
-        this.acc = createVector(0, -0.1);
-        this.vel.add(this.acc);
-        this.vel.limit(this.maxSpeed);
-        this.pos.add(this.vel);
-        this.isStopped = true;
-        
-      } else {
-        // Stop moving in white areas
-        this.isStopped = true;
-      }
-      
-      this.lifeSpan -= 1;
-      this.opacity = map(this.lifeSpan, 0, 200, 0, 255);
+    let r = red(c);
+    let g = green(c);
+    let b = blue(c);
+    if (r === 0 && g === 0 && b === 0) {
+      // BLACK
+      this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * TWO_PI).mult(0.2));
+      this.vel.add(this.acc);
+      this.vel.limit(this.maxSpeed);
+      this.pos.add(this.vel);
+    } else if (r === 0 && g === 100 && b === 0) {
+      // YIN
+      this.acc.set(p5.Vector.fromAngle(this.yinAngle).mult(0.2));
+      this.vel.add(this.acc);
+      this.vel.limit(this.yinSpeed);
+      this.pos.add(this.vel);
+    } else if (r === 255 && g === 100 && b === 0) {
+      // UP
+      this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * PI).mult(0.2));
+      this.vel.add(this.acc);
+      this.vel.limit(this.maxSpeed);
+      this.pos.add(this.vel);
+    } else if (r === 0 && g === 100 && b === 255) {
+      // DOWN
+      this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * -PI).mult(0.2));
+      this.vel.add(this.acc);
+      this.vel.limit(this.maxSpeed);
+      this.pos.add(this.vel);
+    } else {
+      // ELSEWHERE
+      this.isStopped = true;
+    }
+    this.lifeSpan -= 1;
+    this.opacity = map(this.lifeSpan, 0, 200, 0, 255);
     }
   
     display() {

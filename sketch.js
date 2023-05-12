@@ -64,7 +64,7 @@ function draw() {
   
 
   // Add new particles
-  if (particles.length < 100) {
+  if (particles.length < 150) {
     for (let i = 0; i < 10; i++) {
       let p = new Particle();
       particles.push(p);
@@ -72,13 +72,19 @@ function draw() {
   }
   
   // Update and display particles
+  let particlesToRemove = [];
   for (let i = particles.length - 1; i >= 0; i--) {
     let p = particles[i];
     p.update();
     p.display();
     if (p.isFinished()) {
-      particles.splice(i, 1);
+      particlesToRemove.push(i);
     }
+  }
+
+  // Remove finished particles outside the loop
+  for (let i = particlesToRemove.length - 1; i >= 0; i--) {
+    particles.splice(particlesToRemove[i], 1);
   }
 
   graphLine();

@@ -3,6 +3,7 @@ let particles = [];
 let startTime = 0;
 let dur = 2000; // in milliseconds
 let pg;
+let cg;
 
 let points = [
    [1, 0],
@@ -36,27 +37,31 @@ function setup() {
   var divHeight = canvasDiv.offsetHeight;
   var canvas = createCanvas(windowWidth, divHeight);
   canvas.parent('sketch-container');
+  pixelDensity(1);
   pg = createGraphics(width, height);
   background(0);
+  cg = createGraphics(width, height);
+  cg.pixelDensity(0.01);
 }
 
 function draw() {
-  //background(255);
+  background(0);
   pg.background(255);
 
   pgRectangles();
 
-  // Horizontal lines in pg
-  pg.stroke(0);
-  pg.strokeWeight(2);
-  let spacing = height / 6;
-  let marg = height / 12;
-  for (let i = 0; i < 6; i++) {
-    pg.line(0, marg, width, marg);
-    marg += spacing;
-  }
-
-  pgGraph();
+  // // Horizontal lines in pg
+  // pg.stroke(0);
+  // pg.strokeWeight(2);
+  // let spacing = height / 6;
+  // let marg = height / 12;
+  // for (let i = 0; i < 6; i++) {
+  //   pg.line(0, marg, width, marg);
+  //   marg += spacing;
+  // }
+  
+  
+  //pgGraph();
 
   //chaoticBalls();
   
@@ -80,6 +85,24 @@ function draw() {
       particles.splice(i, 1);
     }
   }
+  //cg.background(0);
+  cg.clear();
+  for (let x = 0; x < pg.width; x+=60) {
+    for (let y = 0; y < pg.height; y+=40) {
+      let color = pg.get(x, y); // Get the color of the pixel
+      
+      // Check if the color is white (255, 255, 255)
+      if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
+        cg.fill(250);
+        cg.noStroke();
+        //let noiseVal = noise(frameCount * 0.005);
+        //diameter = map(noiseVal, 0, 1, 10, 100);
+        cg.circle(x, y, 50);
+      }
+    }
+  }
+  
+  image(cg, 0, 0);
 }
 
 function windowResized() {

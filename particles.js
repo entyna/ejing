@@ -7,7 +7,8 @@ class Particle {
         let r = red(c);
         let g = green(c);
         let b = blue(c);
-        if (g > 0) {
+        let a = alpha(c);
+        if (a == 0) {
           isInBlack = true;
         }
       }
@@ -33,6 +34,7 @@ class Particle {
     let r = red(c);
     let g = green(c);
     let b = blue(c);
+    let a = alpha(c);
     if (r === 0 && g === 0 && b === 0) {
       // BLACK
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * TWO_PI).mult(0.2));
@@ -51,7 +53,7 @@ class Particle {
       this.vel.add(this.acc);
       this.vel.limit(this.maxSpeed);
       this.pos.add(this.vel);
-    } else if (r === 1 && g === 1 && b === 0) {
+    } else if (r === 255 && g === 255 && b === 255 && a === 0) {
       // DOWN
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * -PI).mult(0.2));
       this.vel.add(this.acc);

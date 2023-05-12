@@ -14,7 +14,7 @@ for (let i = 0; i < 6; i++) {
   button.addEventListener("click", function() {
     // Toggle the yaoValues value for this button
     yaoValues[i] = 1 - yaoValues[i];
-    button.innerHTML = yaoValues[i].toString();
+    //button.innerHTML = yaoValues[i].toString();
     // Call the updatePoints function in sketch.js, passing in the updated yaoValues array
     updatePoints(yaoValues);
   });

@@ -3,6 +3,7 @@ let particles = [];
 let startTime = 0;
 let dur = 2000; // in milliseconds
 let pg;
+let cg;
 let HH, HM, MH, MM, ME, EM, EE, EH, HE;
 let t = 0;
 
@@ -39,9 +40,11 @@ function setup() {
   var canvas = createCanvas(windowWidth, divHeight);
   canvas.parent('sketch-container');
   pg = createGraphics(width, height);
+  cg = createGraphics(width, height);
+  cg.pixelDensity(0.01);
   background(0);
   
-  let hMarg = height / 12;
+  let hMarg = height / 18;
   let hField = height / 6;
   HH = new Field(pg, width * 0.85, width * 0.3, hMarg, hField, 3);
   MH = new Field(pg, width, width * 0.3, hMarg + hField, hField, 3);
@@ -56,29 +59,32 @@ function setup() {
 
 function draw() {
   //background(0);
-  background('rgba(0,0,0, 0.05)');
+  //background('rgba(0,0,0, 0.05)');
   //pg.background(200, 0, 200);
-  pg.clear(255, 100, 255, 0);
+  cg.background(0);
+  cg.circle(width/2, height/2, width/2, height/2);
+  image(cg, 0, 0);
+  pg.clear();
   pgFields();
 
-   // Horizontal lines in pg
-   push();
-   pg.stroke(0,0,0);
-   pg.strokeWeight(4)
-   let spacing = height / 6;
-   let marg = height / 12;
-   for (let i = 0; i < 6; i++) {
-     pg.line(0, marg, width, marg);
-     marg += spacing;
-   }
-   pop();
-  let opacity = noise(t) * 255;
-  push();
-  tint(255, opacity);
+  //  // Horizontal lines in pg
+  //  push();
+  //  pg.stroke(0,0,0);
+  //  pg.strokeWeight(4)
+  //  let spacing = height / 6;
+  //  let marg = height / 12;
+  //  for (let i = 0; i < 6; i++) {
+  //    pg.line(0, marg, width, marg);
+  //    marg += spacing;
+  //  }
+  //  pop();
+  //let opacity = noise(t) * 255;
+  //push();
+  //tint(255, opacity);
   //blendMode(LIGHTEST);
   image(pg, 0, 0);
-  t += 0.1;
-  pop();
+  //t += 0.1;
+  //pop();
 
  
 
@@ -90,21 +96,21 @@ function draw() {
     }
   }
   
-  // Update and display particles
-  let particlesToRemove = [];
-  for (let i = particles.length - 1; i >= 0; i--) {
-    let p = particles[i];
-    p.update();
-    p.display();
-    if (p.isFinished()) {
-      particlesToRemove.push(i);
-    }
-  }
+  // // Update and display particles
+  // let particlesToRemove = [];
+  // for (let i = particles.length - 1; i >= 0; i--) {
+  //   let p = particles[i];
+  //   p.update();
+  //   p.display();
+  //   if (p.isFinished()) {
+  //     particlesToRemove.push(i);
+  //   }
+  // }
 
-  // Remove finished particles outside the loop
-  for (let i = particlesToRemove.length - 1; i >= 0; i--) {
-    particles.splice(particlesToRemove[i], 1);
-  }
+  // // Remove finished particles outside the loop
+  // for (let i = particlesToRemove.length - 1; i >= 0; i--) {
+  //   particles.splice(particlesToRemove[i], 1);
+  // }
 
   graphLine();
 
@@ -117,38 +123,32 @@ function windowResized() {
 
 
 function pgFields() {
-  let fieldStroke = 200;
+  let fieldStroke = 255;
   let fieldWeight = 0.1;
-  let mult = 1;
-  let g = 1;
+  let mult = 255;
+  //let g = 1;
   pg.stroke(fieldStroke);
   pg.strokeWeight(fieldWeight);
-  pg.fill(points[2][0]*mult, g, points[5][0]*mult);
+  pg.fill(points[5][0]+points[2][0], (1-abs(points[5][0]-points[2][0]))*mult);
   HH.show();
-  pg.fill(points[1][0]*mult, g, points[5][0]*mult);
+  pg.fill(points[5][0]+points[1][0], (1-abs(points[5][0]-points[1][0]))*mult);
   MH.show();
   //pg.noStroke();
-  pg.fill(points[2][0]*mult, g, points[4][0]*mult);
+  pg.fill(points[4][0]+points[2][0], (1-abs(points[4][0]-points[2][0]))*mult);
   HM.show();
-  pg.stroke(fieldStroke);
-  pg.strokeWeight(fieldWeight);
-  pg.fill(points[0][0]*mult, g, points[5][0]*mult);
+  pg.fill(points[5][0]+points[0][0], (1-abs(points[5][0]-points[0][0]))*mult);
   EH.show();
   //pg.noStroke();
-  pg.fill(points[2][0]*mult, g, points[3][0]*mult);
+  pg.fill(points[3][0]+points[2][0], (1-abs(points[3][0]-points[2][0]))*mult);
   HE.show();
-  pg.fill(points[1][0]*mult, g, points[4][0]*mult);
+  pg.fill(points[1][0]+points[4][0], (1-abs(points[1][0]-points[4][0]))*mult);
   MM.show();
-  pg.stroke(fieldStroke);
-  pg.strokeWeight(fieldWeight);
-  pg.fill(points[0][0]*mult, g, points[4][0]*mult);
+  pg.fill(points[0][0]+points[4][0], (1-abs(points[0][0]-points[4][0]))*mult);
   EM.show();
   //pg.noStroke();
-  pg.fill(points[1][0]*mult, g, points[3][0]*mult);
+  pg.fill(points[1][0]+points[3][0], (1-abs(points[1][0]-points[3][0]))*mult);
   ME.show();
-  pg.stroke(fieldStroke);
-  pg.strokeWeight(fieldWeight);
-  pg.fill(points[0][0]*mult, g, points[3][0]*mult);
+  pg.fill(points[0][0]+points[3][0], (1-abs(points[0][0]-points[3][0]))*mult);
   EE.show();
 }
 function graphLine() {
@@ -156,10 +156,10 @@ function graphLine() {
   let xScale = width*0.9;
   let yScale = height/6;
   let xShift = width*0.05;
-  let yShift = height/12;
+  let yShift = height/9;
   push();
-  translate(width, 0);
-  scale(-1, 1);
+  //translate(width, 0);
+  //scale(-1, 1);
   stroke(255);
   fill(0)
   strokeWeight(1);
@@ -170,11 +170,11 @@ function graphLine() {
     let endY = height - points[i+1][1] * yScale - yShift;
     line(startX, startY, endX, endY);
   }
-  for (let i = 0; i < points.length; i++) {
-    let x = points[i][0] * xScale + xShift;
-    let y = height - points[i][1] * yScale - yShift;
-    circle(x, y, 10);
-  }
+  // for (let i = 0; i < points.length; i++) {
+  //   let x = points[i][0] * xScale + xShift;
+  //   let y = height - points[i][1] * yScale - yShift;
+  //   circle(x, y, 10);
+  // }
   pop();
 }
 

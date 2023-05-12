@@ -15,12 +15,14 @@ class Particle {
       this.acc = createVector();
       this.maxSpeed = 2;
       this.yinSpeed = 0.7;
-      let colors = [255]
-      this.color = color(random(colors));
+      //let colors = [255]
+      this.color = 255;
       this.lifeSpan = random(50, 200);
-      this.size = 3;
+      this.size = 2;
       this.opacity = 255;
       this.isStopped = false;
+      this.history = []; // array to store past positions
+      this.historyLength = 20;
 
       // Precompute random angle for YIN particles
     this.yinAngle = random(TWO_PI);
@@ -61,14 +63,27 @@ class Particle {
     }
     this.lifeSpan -= 1;
     this.opacity = map(this.lifeSpan, 0, 200, 0, 255);
+    this.history.unshift(createVector(this.pos.x, this.pos.y)); // add current position to the beginning of history array
+    if (this.history.length > this.historyLength) {
+      this.history.pop(); // remove the oldest position from history array if it exceeds the maximum length
+    }
     }
   
     display() {
            
       noStroke();
+      //stroke(255);
+      //strokeWeight(0.5);
       //this.color.setAlpha(30);
       fill(this.color);
-      ellipse(this.pos.x, this.pos.y, this.size);
+      //ellipse(this.pos.x, this.pos.y, this.size);
+      //noFill();
+    
+     beginShape();
+     for (let i = 0; i < this.history.length; i++) {
+       vertex(this.history[i].x, this.history[i].y);
+     }
+     endShape();
       
     }
   

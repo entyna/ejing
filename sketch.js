@@ -57,7 +57,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background('rgba(0,0,0, 0.1)');
   pg.background(255);
   pgFields();
   //image(pg, 0, 0);

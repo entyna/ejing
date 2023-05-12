@@ -10,7 +10,7 @@ document.body.appendChild(buttonContainer);
 let buttons = [];
 for (let i = 0; i < 6; i++) {
   let button = document.createElement("button");
-  button.innerHTML = "1";
+  //button.innerHTML = "1";
   button.addEventListener("click", function() {
     // Toggle the yaoValues value for this button
     yaoValues[i] = 1 - yaoValues[i];

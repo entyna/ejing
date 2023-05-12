@@ -4,7 +4,7 @@ let startTime = 0;
 let dur = 2000; // in milliseconds
 let pg;
 let HH, HM, MH, MM, ME, EM, EE, EH, HE;
-//let cg;
+let t = 0;
 
 let points = [
    [1, 0],
@@ -38,33 +38,52 @@ function setup() {
   var divHeight = canvasDiv.offsetHeight;
   var canvas = createCanvas(windowWidth, divHeight);
   canvas.parent('sketch-container');
-  //pixelDensity(1);
   pg = createGraphics(width, height);
+  background(0);
   
-  //cg = createGraphics(width, height);
-  //cg.pixelDensity(0.01);
   let hMarg = height / 12;
   let hField = height / 6;
-  HH = new Field(pg, width * 0.7, width * 0.2, hMarg, hField, 5);
-  MH = new Field(pg, width * 0.2, width * 0.2, hMarg + hField, hField, 5);
-  HM = new Field(pg, width * 0.6, width * 0.2, hMarg + hField, hField, 5);
-  EH = new Field(pg, width * 0.1, width * 0.2, hMarg + 2 * hField, hField, 5);
-  HE = new Field(pg, width * 0.2, width * 0.2, hMarg + 2 * hField, hField, 5);
-  MM = new Field(pg, width * 0.57, width * 0.2, hMarg + 2 * hField, hField, 5);
-  EM = new Field(pg, width * 0.2, width * 0.2, hMarg + 3 * hField, hField, 5);
-  ME = new Field(pg, width * 0.6, width * 0.2, hMarg + 3 * hField, hField, 5);
-  EE = new Field(pg, width * 0.7, width * 0.2, hMarg + 4 * hField, hField, 5);
+  HH = new Field(pg, width * 0.85, width * 0.3, hMarg, hField, 3);
+  MH = new Field(pg, width, width * 0.3, hMarg + hField, hField, 3);
+  HM = new Field(pg, width * 0.7, width * 0.15, hMarg + hField, hField, 3);
+  EH = new Field(pg, width * 1.3, width * 0.3, hMarg + 2 * hField, hField, 3);
+  HE = new Field(pg, width * 0.9, width * 0.3, hMarg + 2 * hField, hField, 3);
+  MM = new Field(pg, width * 0.65, width * 0.15, hMarg + 2 * hField, hField, 3);
+  EM = new Field(pg, width, width * 0.3, hMarg + 3 * hField, hField, 3);
+  ME = new Field(pg, width * 0.3, width * 0.15, hMarg + 3 * hField, hField, 3);
+  EE = new Field(pg, width * 0.85, width * 0.3, hMarg + 4 * hField, hField, 3);
 }
 
 function draw() {
-  background('rgba(0,0,0, 0.1)');
-  pg.background(255);
+  //background(0);
+  background('rgba(0,0,0, 0.05)');
+  //pg.background(200, 0, 200);
+  pg.clear(255, 100, 255, 0);
   pgFields();
-  //image(pg, 0, 0);
-  
+
+   // Horizontal lines in pg
+   push();
+   pg.stroke(0,0,0);
+   pg.strokeWeight(4)
+   let spacing = height / 6;
+   let marg = height / 12;
+   for (let i = 0; i < 6; i++) {
+     pg.line(0, marg, width, marg);
+     marg += spacing;
+   }
+   pop();
+  let opacity = noise(t) * 255;
+  push();
+  tint(255, opacity);
+  //blendMode(LIGHTEST);
+  image(pg, 0, 0);
+  t += 0.1;
+  pop();
+
+ 
 
   // Add new particles
-  if (particles.length < 150) {
+  if (particles.length < 100) {
     for (let i = 0; i < 10; i++) {
       let p = new Particle();
       particles.push(p);
@@ -88,53 +107,48 @@ function draw() {
   }
 
   graphLine();
+
+  
 }
 
 function windowResized() {
    resizeCanvas(windowWidth, windowHeight);
 }
 
-//function yangLowDen() {
-  //cg.background(0);
-  // cg.clear();
-  // for (let x = 0; x < pg.width; x+=60) {
-  //   for (let y = 0; y < pg.height; y+=40) {
-  //     let color = pg.get(x, y); // Get the color of the pixel
-      
-  //     // Check if the color is white (255, 255, 255)
-  //     if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
-  //       cg.fill(250);
-  //       cg.noStroke();
-  //       //let noiseVal = noise(frameCount * 0.005);
-  //       //diameter = map(noiseVal, 0, 1, 10, 100);
-  //       cg.circle(x, y, 50);
-  //     }
-  //   }
-  // }
-  
-  // image(cg, 0, 0);
-//}
 
 function pgFields() {
-  pg.stroke(0);
-  pg.strokeWeight(2);
-  pg.fill(points[2][0]*255, 100, points[5][0]*255);
+  let fieldStroke = 200;
+  let fieldWeight = 0.1;
+  let mult = 1;
+  let g = 1;
+  pg.stroke(fieldStroke);
+  pg.strokeWeight(fieldWeight);
+  pg.fill(points[2][0]*mult, g, points[5][0]*mult);
   HH.show();
-  pg.fill(points[1][0]*255, 100, points[5][0]*255);
+  pg.fill(points[1][0]*mult, g, points[5][0]*mult);
   MH.show();
-  pg.fill(points[2][0]*255, 100, points[4][0]*255);
+  //pg.noStroke();
+  pg.fill(points[2][0]*mult, g, points[4][0]*mult);
   HM.show();
-  pg.fill(points[0][0]*255, 100, points[5][0]*255);
+  pg.stroke(fieldStroke);
+  pg.strokeWeight(fieldWeight);
+  pg.fill(points[0][0]*mult, g, points[5][0]*mult);
   EH.show();
-  pg.fill(points[2][0]*255, 100, points[3][0]*255);
+  //pg.noStroke();
+  pg.fill(points[2][0]*mult, g, points[3][0]*mult);
   HE.show();
-  pg.fill(points[1][0]*255, 100, points[4][0]*255);
+  pg.fill(points[1][0]*mult, g, points[4][0]*mult);
   MM.show();
-  pg.fill(points[0][0]*255, 100, points[4][0]*255);
+  pg.stroke(fieldStroke);
+  pg.strokeWeight(fieldWeight);
+  pg.fill(points[0][0]*mult, g, points[4][0]*mult);
   EM.show();
-  pg.fill(points[1][0]*255, 100, points[3][0]*255);
+  //pg.noStroke();
+  pg.fill(points[1][0]*mult, g, points[3][0]*mult);
   ME.show();
-  pg.fill(points[0][0]*255, 100, points[3][0]*255);
+  pg.stroke(fieldStroke);
+  pg.strokeWeight(fieldWeight);
+  pg.fill(points[0][0]*mult, g, points[3][0]*mult);
   EE.show();
 }
 function graphLine() {
@@ -163,5 +177,4 @@ function graphLine() {
   }
   pop();
 }
-
 

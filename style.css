@@ -1,5 +1,5 @@
 :root {
-  
+  --circle-d: 15px;
 }
 
 /* Removing blue highlight of buttons on mobile */
@@ -84,12 +84,14 @@ main {
 }
 #button-container{
   /* background-color: rgba(171, 174, 255, 0.5); */
-  height: 78vh;
-  margin-top: 4vh;
-  padding: 0 3vw;
+  height: calc(var(--circle-d) + 100dvh - (100dvh / 6));
+  margin-top: calc((100dvh / 18) - (var(--circle-d)/2));
+  padding-left: calc((100dvw*0.05) - (var(--circle-d)/2));
+  padding-right: calc((100dvw*0.05) - (var(--circle-d)/2));
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  
 }
 #sketch-container{
   height: 100%;
@@ -104,17 +106,18 @@ canvas {
   cursor: pointer;
   background-color: white;
   border: 1px solid white;
-  width: 4vw;
-  height: 4vw;
+  width: var(--circle-d);
+  height: var(--circle-d);
   margin-right: auto;
   border-radius: 50%;
+  padding: 4px;
 }
 .button-1 {
   cursor: pointer;
   background-color: black;
   border: 1px solid white;
-  width: 4vw;
-  height: 4vw;
+  width: var(--circle-d);
+  height: var(--circle-d);
   margin-left: auto;
   border-radius: 50%;
 }

@@ -25,14 +25,9 @@ function updatePoints(yaoValues) {
   points[3][0] = yaoValues[3];
   points[4][0] = yaoValues[4];
   points[5][0] = yaoValues[5];
-  
-  //clearCanvas();
-}
 
-// function clearCanvas() {
-//   clear();
-//   background(0);
-// }
+  print(points[0][0]);
+}
 
 function setup() {
   var canvasDiv = document.getElementById('sketch-container');

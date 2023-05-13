@@ -22,17 +22,3 @@ for (let i = 0; i < 6; i++) {
   buttons.push(button);
   buttonContainer.appendChild(button);
 }
-
-// // Create the buttons
-// let buttons = [];
-// for (let i = 0; i < 6; i++) {
-//   let button = document.createElement("button");
-//   button.addEventListener("click", function() {
-//     // Toggle the yaoValues value for this button
-//     yaoValues[i] = 1 - yaoValues[i];
-//     // Call the updatePoints function in sketch.js, passing in the updated yaoValues array
-//     updatePoints(yaoValues);
-//   });
-//   buttons.push(button);
-//   buttonContainer.appendChild(button);
-// }

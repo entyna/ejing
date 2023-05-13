@@ -15,7 +15,7 @@ class Particle {
       this.yinSpeed = 0.1;
       this.size = random(0.3, 1.5);
       this.strokeThick = 0.3;
-      this.strokeCol = 150;
+      this.strokeCol = 180;
       this.fillCol = 0;
       this.lifeSpan = random(100, 200);
       this.isStopped = false;

@@ -93,7 +93,7 @@ function shinyYang() {
   cg.noStroke();
   let noiseVal = noise(frameCount * 0.005);
   diameter = map(noiseVal, 0, 1, 10, 60);
-  d2 = map(noiseVal, 0, 1, 0.5, 0.9);
+  d2 = map(noiseVal, 0, 1, 0.2, 0.7);
   cg.fill(200, 40);
   cg.ellipse(width/2, height/2, width*d2, height*d2);
   cg.ellipse(50, -50, width*d2, height*d2);

@@ -25,11 +25,10 @@ function updatePoints(yaoValues) {
   points[3][0] = yaoValues[3];
   points[4][0] = yaoValues[4];
   points[5][0] = yaoValues[5];
-
-  print(points[0][0]);
 }
 
 function setup() {
+
   var canvasDiv = document.getElementById('sketch-container');
   var divHeight = canvasDiv.offsetHeight;
   var canvas = createCanvas(windowWidth, divHeight);
@@ -108,8 +107,6 @@ function draw() {
   // }
 
   graphLine();
-
-  
 }
 
 function windowResized() {

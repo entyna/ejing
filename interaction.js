@@ -1,5 +1,19 @@
 // Define the yaoValues array
-let yaoValues = [1, 1, 1, 1, 1, 1];
+let yaoValues;
+
+// Function to generate random yaoValues array
+function generateRandomYaoValues() {
+  yaoValues = [];
+  for (let i = 0; i < 6; i++) {
+    yaoValues.push(Math.floor(Math.random() * 2)); // Generate random 0 or 1
+  }
+}
+
+// Call the function to generate initial yaoValues array
+generateRandomYaoValues();
+
+// Call updatePoints with initial yaoValues
+updatePoints(yaoValues);
 
 // Create the buttons container
 let buttonContainer = document.createElement("div");

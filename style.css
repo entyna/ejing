@@ -83,10 +83,10 @@ main {
   grid-column-start: 1;
 }
 #button-container{
-  background-color: rgba(171, 174, 255, 0.5);
-  height: 81vh;
-  margin-top: 2.5vh;
-  padding: 0 2vw;
+  /* background-color: rgba(171, 174, 255, 0.5); */
+  height: 78vh;
+  margin-top: 4vh;
+  padding: 0 3vw;
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
@@ -100,11 +100,21 @@ canvas {
   max-width: 100% !important;
   display: block !important;
 }
-button {
+.button-0 {
   cursor: pointer;
-  background: none;
-  background-color: rgba(43, 226, 131, 0.5);
-  width: 5vh;
-  height: 5vh;
-  color: rgba(0, 0, 0); /*zatím průhledné číslice, než vymyslím, co s nimi*/
+  background-color: white;
+  border: 1px solid white;
+  width: 4vw;
+  height: 4vw;
+  margin-right: auto;
+  border-radius: 50%;
+}
+.button-1 {
+  cursor: pointer;
+  background-color: black;
+  border: 1px solid white;
+  width: 4vw;
+  height: 4vw;
+  margin-left: auto;
+  border-radius: 50%;
 }

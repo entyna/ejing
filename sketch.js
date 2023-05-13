@@ -6,6 +6,10 @@ let pg;
 let cg;
 let HH, HM, MH1, MH2, MM, ME, EM1, EM2, EE, EH1, EH2, HE1, HE2;
 let t = 0;
+let ballX = 25;
+let ballY = 25;
+let speedX = 3;
+let speedY = 2;
 
 let points = [
    [0, 0],
@@ -56,20 +60,21 @@ function setup() {
 }
 
 function draw() {
-  //background(0);
-  //background('rgba(0,0,0, 0.05)');
-  //pg.background(200, 0, 200);
+// SHINYYYY
   cg.background('black');
-  for (let x = 0; x < pg.width; x+=80) {
-    for (let y = 0; y < pg.height; y+=60) {
-      let color = pg.get(x, y); // Get the color of the pixel
-      
-      // Check if the color is white (255, 255, 255)
+  cg.noStroke();
+  let noiseVal = noise(frameCount * 0.005);
+  diameter = map(noiseVal, 0, 1, 10, 60);
+  d2 = map(noiseVal, 0, 1, 0.5, 0.9);
+  cg.fill(200, 40);
+  cg.ellipse(width/2, height/2, width*d2, height*d2);
+  cg.ellipse(50, -50, width*d2, height*d2);
+   
+  for (let x = 0; x < pg.width; x+=height/5) {
+    for (let y = 0; y < pg.height; y+=height/5) {
+      let color = pg.get(x, y);
       if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
-        cg.fill('white');
-        cg.noStroke(255);
-        let noiseVal = noise(frameCount * 0.005);
-        diameter = map(noiseVal, 0, 1, 10, 60);
+        cg.fill('200');
         cg.circle(x, y, diameter);
       }
     }
@@ -80,23 +85,23 @@ function draw() {
 
   //  // Horizontal lines in pg
   //  push();
-  //  pg.stroke(0,0,0);
-  //  pg.strokeWeight(4)
+  //  pg.stroke(0);
+  //  pg.strokeWeight(1)
   //  let spacing = height / 6;
-  //  let marg = height / 12;
+  //  let marg = height / 18;
   //  for (let i = 0; i < 6; i++) {
   //    pg.line(0, marg, width, marg);
   //    marg += spacing;
   //  }
-  //pop();
+  // pop();
   //let opacity = noise(t) * 255;
-  push();
+  //push();
   //tint(255, opacity);
   //blendMode(OVERLAY);
   // tint(255, 127);
   image(pg, 0, 0);
   //t += 0.1;
-  pop();
+  //pop();
 
  
 
@@ -108,21 +113,21 @@ function draw() {
     }
   }
   
-  // // Update and display particles
-  // let particlesToRemove = [];
-  // for (let i = particles.length - 1; i >= 0; i--) {
-  //   let p = particles[i];
-  //   p.update();
-  //   p.display();
-  //   if (p.isFinished()) {
-  //     particlesToRemove.push(i);
-  //   }
-  // }
+  // Update and display particles
+  let particlesToRemove = [];
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let p = particles[i];
+    p.update();
+    p.display();
+    if (p.isFinished()) {
+      particlesToRemove.push(i);
+    }
+  }
 
-  // // Remove finished particles outside the loop
-  // for (let i = particlesToRemove.length - 1; i >= 0; i--) {
-  //   particles.splice(particlesToRemove[i], 1);
-  // }
+  // Remove finished particles outside the loop
+  for (let i = particlesToRemove.length - 1; i >= 0; i--) {
+    particles.splice(particlesToRemove[i], 1);
+  }
   blendMode(DIFFERENCE);
   graphLine();
   blendMode(BLEND);
@@ -133,62 +138,85 @@ function windowResized() {
 }
 function fieldColor(valueA, valueB) {
   if (valueA === 0 && valueB === 0) {
-    return 0; // Black
+    return 0;
   } else if (valueA === 1 && valueB === 1) {
-    return 255; // White
-  } else if (valueA === 0 && valueB === 1) {
-    return 2; // Color X
+    return 255;
   } else if (valueA === 1 && valueB === 0) {
-    return 1; // Color Y
+    return 1;
+  } else if (valueA === 0 && valueB === 1) {
+    return 1;
   }
 }
 
 function fieldOpacity(valueA, valueB) {
   if (valueA === 0 && valueB === 0) {
-    return 255; // Fully opaque
+    return 255;
   } else if (valueA === 1 && valueB === 1) {
-    return 50; // Semi-transparent
-  } else if (valueA === 0 && valueB === 1) {
-    return 0; // Fully transparent
+    return 50;
   } else if (valueA === 1 && valueB === 0) {
-    return 0; // Fully transparent
+    return 2;
+  } else if (valueA === 0 && valueB === 1) {
+    return 1;
   }
 }
 
 function pgFields() {
-  let fieldStroke = 180;
+  let fieldStroke = 100;
   let fieldWeight = 0.3;
-  let mult = 255;
-  let mult2 = 255;
-  //let g = 1;
+ 
   pg.stroke(fieldStroke);
   pg.strokeWeight(fieldWeight);
-  pg.fill(fieldColor(points[2][0], points[5][0]), fieldOpacity(points[2][0], points[5][0]));
+
+  let color2 = fieldColor(points[2][0], points[5][0]);
+  let opacity2 = fieldOpacity(points[2][0], points[5][0]);
+  pg.fill(color2, opacity2);
   HH.show();
-  pg.fill(fieldColor(points[1][0], points[5][0]), fieldOpacity(points[1][0], points[5][0]));
+
+  let color1 = fieldColor(points[1][0], points[5][0]);
+  let opacity1 = fieldOpacity(points[1][0], points[5][0]);
+  pg.fill(color1, opacity1);
   MH1.show();
   MH2.show();
-  //pg.noStroke();
-  pg.fill(fieldColor(points[2][0], points[4][0]), fieldOpacity(points[2][0], points[4][0]));
+
+  let color4 = fieldColor(points[2][0], points[4][0]);
+  let opacity4 = fieldOpacity(points[2][0], points[4][0]);
+  pg.fill(color4, opacity4);
   HM.show();
-  pg.fill(fieldColor(points[0][0], points[5][0]), fieldOpacity(points[0][0], points[5][0]));
+
+  let color5 = fieldColor(points[0][0], points[5][0]);
+  let opacity5 = fieldOpacity(points[0][0], points[5][0]);
+  pg.fill(color5, opacity5);
   EH1.show();
   EH2.show();
-  //pg.noStroke();
-  pg.fill(fieldColor(points[2][0], points[3][0]), fieldOpacity(points[2][0], points[3][0]));
+
+  let color3 = fieldColor(points[2][0], points[3][0]);
+  let opacity3 = fieldOpacity(points[2][0], points[3][0]);
+  pg.fill(color3, opacity3);
   HE1.show();
   HE2.show();
-  pg.fill(fieldColor(points[1][0], points[4][0]), fieldOpacity(points[1][0], points[4][0]));
+
+  let color6 = fieldColor(points[1][0], points[4][0]);
+  let opacity6 = fieldOpacity(points[1][0], points[4][0]);
+  pg.fill(color6, opacity6);
   MM.show();
-  pg.fill(fieldColor(points[0][0], points[4][0]), fieldOpacity(points[0][0], points[4][0]));
+
+  let color7 = fieldColor(points[0][0], points[4][0]);
+  let opacity7 = fieldOpacity(points[0][0], points[4][0]);
+  pg.fill(color7, opacity7);
   EM1.show();
   EM2.show();
-  //pg.noStroke();
-  pg.fill(fieldColor(points[1][0], points[3][0]), fieldOpacity(points[1][0], points[3][0]));
+
+  let color8 = fieldColor(points[1][0], points[3][0]);
+  let opacity8 = fieldOpacity(points[1][0], points[3][0]);
+  pg.fill(color8, opacity8);
   ME.show();
-  pg.fill(fieldColor(points[0][0], points[3][0]), fieldOpacity(points[0][0], points[3][0]));
+
+  let color9 = fieldColor(points[0][0], points[3][0]);
+  let opacity9 = fieldOpacity(points[0][0], points[3][0]);
+  pg.fill(color9, opacity9);
   EE.show();
 }
+
 function graphLine() {
   // linka nahoře
   let xScale = width*0.9;

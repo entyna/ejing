@@ -14,7 +14,7 @@ class Field {
     this.pg.vertex(this.xpos1, this.ypos);
     
     for (let y = this.ypos; y <= this.ypos + this.yoff; y += this.grain) {
-      let x = map(noise(y * 0.02, frameCount * 0.003), 0, 1, this.xpos1 - this.xoff, this.xpos1 + this.xoff);
+      let x = map(noise(y * 0.02, frameCount * 0.001), 0, 1, this.xpos1 - this.xoff, this.xpos1 + this.xoff);
       this.pg.vertex(x, y);
     }
     
@@ -22,7 +22,7 @@ class Field {
     this.pg.vertex(this.xpos2, this.ypos + this.yoff);
     
     for (let y = this.ypos + this.yoff; y >= this.ypos; y -= this.grain) {
-      let x = map(noise(y * 0.02, frameCount * 0.003), 0, 1, this.xpos2 - this.xoff, this.xpos2 + this.xoff);
+      let x = map(noise(y * 0.02, frameCount * 0.001), 0, 1, this.xpos2 - this.xoff, this.xpos2 + this.xoff);
       this.pg.vertex(x, y);
     }
     

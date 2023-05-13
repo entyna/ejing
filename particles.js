@@ -4,89 +4,82 @@ class Particle {
       while (!isInBlack) {
         this.pos = createVector(random(width), random(height));
         let c = pg.get(floor(this.pos.x), floor(this.pos.y));
-        let r = red(c);
-        let g = green(c);
-        let b = blue(c);
         let a = alpha(c);
-        if (a == 0) {
+        if (a > 0) {
           isInBlack = true;
         }
       }
       this.vel = createVector();
       this.acc = createVector();
-      this.maxSpeed = 2;
-      this.yinSpeed = 0.7;
-      //let colors = [255]
-      this.color = 0;
-      this.lifeSpan = random(50, 200);
-      this.size = 2;
-      //this.opacity = 200;
+      this.maxSpeed = 0.6;
+      this.yinSpeed = 0.1;
+      this.strokeThick = random(0.3, 1.5);
+      this.strokeCol = 200;
+      this.fillCol = 0;
+      this.lifeSpan = random(100, 200);
       this.isStopped = false;
-      this.history = []; // array to store past positions
-      this.historyLength = 25;
+      this.history = [];
+      this.historyLength = 50;
 
-      // Precompute random angle for YIN particles
     this.yinAngle = random(TWO_PI);
     }
   
     update() {
-      let c = pg.get(floor(this.pos.x), floor(this.pos.y));
+    let c = pg.get(floor(this.pos.x), floor(this.pos.y));
     let r = red(c);
-    let g = green(c);
-    let b = blue(c);
     let a = alpha(c);
-    if (r === 0 && g === 0 && b === 0) {
-      // BLACK
-      this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * TWO_PI).mult(0.2));
-      this.vel.add(this.acc);
-      this.vel.limit(this.maxSpeed);
-      this.pos.add(this.vel);
-    } else if (r === 0 && g === 100 && b === 0) {
-      // YIN
-      this.acc.set(p5.Vector.fromAngle(this.yinAngle).mult(0.2));
-      this.vel.add(this.acc);
-      this.vel.limit(this.yinSpeed);
-      this.pos.add(this.vel);
-    } else if (r === 0 && g === 1 && b === 1) {
+ 
+    if (a >= 0 && a <= 1) {
       // UP
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * PI).mult(0.2));
       this.vel.add(this.acc);
       this.vel.limit(this.maxSpeed);
       this.pos.add(this.vel);
-    } else if (r === 255 && g === 255 && b === 255 && a === 0) {
+    } else if (a >= 50 && a <= 250) {
+      //YANG
+      this.isStopped = true;
+    } else if (a > 250) {
+      //YIN
+      this.acc.set(p5.Vector.fromAngle(this.yinAngle).mult(0.2));
+      this.vel.add(this.acc);
+      this.vel.limit(this.yinSpeed);
+      this.pos.add(this.vel);
+    } else {
       // DOWN
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * -PI).mult(0.2));
       this.vel.add(this.acc);
       this.vel.limit(this.maxSpeed);
       this.pos.add(this.vel);
-    } else {
-      // ELSEWHERE
-      this.isStopped = true;
     }
+
+    
     this.lifeSpan -= 1;
     this.opacity = map(this.lifeSpan, 0, 200, 0, 255);
     this.history.unshift(createVector(this.pos.x, this.pos.y)); // add current position to the beginning of history array
+    
     if (this.history.length > this.historyLength) {
       this.history.pop(); // remove the oldest position from history array if it exceeds the maximum length
     }
     }
   
     display() {
-           
-      //noStroke();
-      stroke(200);
-      strokeWeight(0.3);
-      //this.color.setAlpha(30);
-      fill(this.color);
-      //ellipse(this.pos.x, this.pos.y, this.size);
-      //noFill();
+     let c = pg.get(floor(this.pos.x), floor(this.pos.y));
+     let a = alpha(c);
+    stroke(this.strokeCol);
+    strokeWeight(this.strokeThick);
+    fill(this.fillCol);
     
-     beginShape();
+    beginShape();
+    if (a > 250) {
+      for (let i = 0; i < 4 && i < this.history.length; i++) {
+        vertex(this.history[i].x, this.history[i].y);
+      }
+    } else {
      for (let i = 0; i < this.history.length; i++) {
        vertex(this.history[i].x, this.history[i].y);
      }
+    }
      endShape();
-      
     }
   
     isFinished() {

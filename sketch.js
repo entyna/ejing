@@ -1,15 +1,7 @@
-let currentPoint = 0;
 let particles = [];
-let startTime = 0;
-let dur = 2000; // in milliseconds
 let pg;
 let cg;
 let HH, HM, MH1, MH2, MM, ME, EM1, EM2, EE, EH1, EH2, HE1, HE2;
-let t = 0;
-let ballX = 25;
-let ballY = 25;
-let speedX = 3;
-let speedY = 2;
 
 let points = [
    [0, 0],
@@ -19,8 +11,6 @@ let points = [
    [0, 4],
    [0, 5]
 ];
-
-
 
 function updatePoints(yaoValues) {
   points[0][0] = yaoValues[0];
@@ -32,7 +22,6 @@ function updatePoints(yaoValues) {
 }
 
 function setup() {
-
   var canvasDiv = document.getElementById('sketch-container');
   var divHeight = canvasDiv.offsetHeight;
   var canvas = createCanvas(windowWidth, divHeight);
@@ -60,6 +49,7 @@ function setup() {
 }
 
 function draw() {
+background(0);
 // SHINYYYY
 shinyYang();
 
@@ -70,7 +60,7 @@ image(pg, 0, 0);
   
 // PARTICLES
 // Add new particles
-if (particles.length < 100) {
+if (particles.length < 150) {
   for (let i = 0; i < 10; i++) {
     let p = new Particle();
     particles.push(p);
@@ -117,7 +107,7 @@ function shinyYang() {
       }
     }
   }
-  image(cg, 0, 0);
+  image(cg, 0, 0, width, height*1.1);
 }
 
 function windowResized() {

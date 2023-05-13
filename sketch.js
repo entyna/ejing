@@ -4,16 +4,16 @@ let startTime = 0;
 let dur = 2000; // in milliseconds
 let pg;
 let cg;
-let HH, HM, MH, MM, ME, EM, EE, EH, HE;
+let HH, HM, MH1, MH2, MM, ME, EM1, EM2, EE, EH1, EH2, HE1, HE2;
 let t = 0;
 
 let points = [
-   [1, 0],
-   [1, 1],
-   [1, 2],
-   [1, 3],
-   [1, 4],
-   [1, 5]
+   [0, 0],
+   [0, 1],
+   [0, 2],
+   [0, 3],
+   [0, 4],
+   [0, 5]
 ];
 
 
@@ -40,23 +40,27 @@ function setup() {
   
   let hMarg = height / 18;
   let hField = height / 6;
-  HH = new Field(pg, width * 0.85, width * 0.3, hMarg, hField, 3);
-  MH = new Field(pg, width, width * 0.3, hMarg + hField, hField, 3);
-  HM = new Field(pg, width * 0.7, width * 0.15, hMarg + hField, hField, 3);
-  EH = new Field(pg, width * 1.3, width * 0.3, hMarg + 2 * hField, hField, 3);
-  HE = new Field(pg, width * 0.9, width * 0.3, hMarg + 2 * hField, hField, 3);
-  MM = new Field(pg, width * 0.65, width * 0.15, hMarg + 2 * hField, hField, 3);
-  EM = new Field(pg, width, width * 0.3, hMarg + 3 * hField, hField, 3);
-  ME = new Field(pg, width * 0.3, width * 0.15, hMarg + 3 * hField, hField, 3);
-  EE = new Field(pg, width * 0.85, width * 0.3, hMarg + 4 * hField, hField, 3);
+  HH = new Field(pg, width * 0.15, width * 0.85, width * 0.3, hMarg, hField, 3);
+  MH1 = new Field(pg, 0, width * 0.3, width * 0.3, hMarg + hField, hField, 3);
+  HM = new Field(pg, width * 0.3, width * 0.7, width * 0.3, hMarg + hField, hField, 3);
+  MH2 = new Field(pg, width * 0.7, width, width * 0.3, hMarg + hField, hField, 3);
+  EH1 = new Field(pg, - width*0.3, width * 0.1, width * 0.3,hMarg + 2 * hField, hField, 3);
+  HE1 = new Field(pg, width * 0.1, width * 0.35, width * 0.3, hMarg + 2 * hField, hField, 3);
+  MM = new Field(pg, width * 0.35, width * 0.65, width * 0.3, hMarg + 2 * hField, hField, 3);
+  HE2 = new Field(pg, width * 0.65, width * 0.9, width * 0.3, hMarg + 2 * hField, hField, 3);
+  EH2 = new Field(pg, width * 0.9, width * 1.3, width * 0.3, hMarg + 2 * hField, hField, 3);
+  EM1 = new Field(pg, 0, width * 0.3, width * 0.3, hMarg + 3 * hField, hField, 3);
+  ME = new Field(pg, width * 0.3, width * 0.7, width * 0.3, hMarg + 3 * hField, hField, 3);
+  EM2 = new Field(pg, width * 0.7, width, width * 0.3, hMarg + 3 * hField, hField, 3);
+  EE = new Field(pg, width * 0.15, width * 0.85, width * 0.3, hMarg + 4 * hField, hField, 3);
 }
 
 function draw() {
   //background(0);
   //background('rgba(0,0,0, 0.05)');
   //pg.background(200, 0, 200);
-  cg.background(0);
-  cg.circle(width/2, height/2, width/2, height/2);
+  cg.background('blue');
+  //cg.circle(width/2, height/2, width/2, height/2);
   image(cg, 0, 0);
   pg.clear();
   pgFields();
@@ -71,14 +75,15 @@ function draw() {
   //    pg.line(0, marg, width, marg);
   //    marg += spacing;
   //  }
-  //  pop();
+  //pop();
   //let opacity = noise(t) * 255;
-  //push();
+  push();
   //tint(255, opacity);
-  //blendMode(LIGHTEST);
+  //blendMode(OVERLAY);
+  // tint(255, 127);
   image(pg, 0, 0);
   //t += 0.1;
-  //pop();
+  pop();
 
  
 
@@ -105,42 +110,70 @@ function draw() {
   // for (let i = particlesToRemove.length - 1; i >= 0; i--) {
   //   particles.splice(particlesToRemove[i], 1);
   // }
-
+  blendMode(DIFFERENCE);
   graphLine();
+  blendMode(BLEND);
 }
 
 function windowResized() {
    resizeCanvas(windowWidth, windowHeight);
 }
+function fieldColor(valueA, valueB) {
+  if (valueA === 0 && valueB === 0) {
+    return 0; // Black
+  } else if (valueA === 1 && valueB === 1) {
+    return 255; // White
+  } else if (valueA === 0 && valueB === 1) {
+    return 2; // Color X
+  } else if (valueA === 1 && valueB === 0) {
+    return 1; // Color Y
+  }
+}
 
+function fieldOpacity(valueA, valueB) {
+  if (valueA === 0 && valueB === 0) {
+    return 255; // Fully opaque
+  } else if (valueA === 1 && valueB === 1) {
+    return 50; // Semi-transparent
+  } else if (valueA === 0 && valueB === 1) {
+    return 0; // Fully transparent
+  } else if (valueA === 1 && valueB === 0) {
+    return 0; // Fully transparent
+  }
+}
 
 function pgFields() {
-  let fieldStroke = 255;
-  let fieldWeight = 0.1;
+  let fieldStroke = 180;
+  let fieldWeight = 0.3;
   let mult = 255;
+  let mult2 = 255;
   //let g = 1;
   pg.stroke(fieldStroke);
   pg.strokeWeight(fieldWeight);
-  pg.fill(points[5][0]+points[2][0], (1-abs(points[5][0]-points[2][0]))*mult);
+  pg.fill(fieldColor(points[2][0], points[5][0]), fieldOpacity(points[2][0], points[5][0]));
   HH.show();
-  pg.fill(points[5][0]+points[1][0], (1-abs(points[5][0]-points[1][0]))*mult);
-  MH.show();
+  pg.fill(fieldColor(points[1][0], points[5][0]), fieldOpacity(points[1][0], points[5][0]));
+  MH1.show();
+  MH2.show();
   //pg.noStroke();
-  pg.fill(points[4][0]+points[2][0], (1-abs(points[4][0]-points[2][0]))*mult);
+  pg.fill(fieldColor(points[2][0], points[4][0]), fieldOpacity(points[2][0], points[4][0]));
   HM.show();
-  pg.fill(points[5][0]+points[0][0], (1-abs(points[5][0]-points[0][0]))*mult);
-  EH.show();
+  pg.fill(fieldColor(points[0][0], points[5][0]), fieldOpacity(points[0][0], points[5][0]));
+  EH1.show();
+  EH2.show();
   //pg.noStroke();
-  pg.fill(points[3][0]+points[2][0], (1-abs(points[3][0]-points[2][0]))*mult);
-  HE.show();
-  pg.fill(points[1][0]+points[4][0], (1-abs(points[1][0]-points[4][0]))*mult);
+  pg.fill(fieldColor(points[2][0], points[3][0]), fieldOpacity(points[2][0], points[3][0]));
+  HE1.show();
+  HE2.show();
+  pg.fill(fieldColor(points[1][0], points[4][0]), fieldOpacity(points[1][0], points[4][0]));
   MM.show();
-  pg.fill(points[0][0]+points[4][0], (1-abs(points[0][0]-points[4][0]))*mult);
-  EM.show();
+  pg.fill(fieldColor(points[0][0], points[4][0]), fieldOpacity(points[0][0], points[4][0]));
+  EM1.show();
+  EM2.show();
   //pg.noStroke();
-  pg.fill(points[1][0]+points[3][0], (1-abs(points[1][0]-points[3][0]))*mult);
+  pg.fill(fieldColor(points[1][0], points[3][0]), fieldOpacity(points[1][0], points[3][0]));
   ME.show();
-  pg.fill(points[0][0]+points[3][0], (1-abs(points[0][0]-points[3][0]))*mult);
+  pg.fill(fieldColor(points[0][0], points[3][0]), fieldOpacity(points[0][0], points[3][0]));
   EE.show();
 }
 function graphLine() {

@@ -105,7 +105,7 @@ canvas {
 }
 .button-0 {
   cursor: pointer;
-  background-color: white;
+  background-color: black;
   border: 1px solid white;
   width: var(--circle-d);
   height: var(--circle-d);
@@ -115,8 +115,8 @@ canvas {
 }
 .button-1 {
   cursor: pointer;
-  background-color: black;
-  border: 1px solid white;
+  background-color: white;
+  border: 1px solid black;
   width: var(--circle-d);
   height: var(--circle-d);
   margin-left: auto;

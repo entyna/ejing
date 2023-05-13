@@ -1,0 +1,580 @@
+[
+    {
+      "bin": "111111",
+      "num": "1",
+      "char": "U+4DC0",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "2",
+       "char": "U+4DC1",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "3",
+      "char": "U+4DC2",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "4",
+       "char": "U+4DC3",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "5",
+      "char": "U+4DC4",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "6",
+       "char": "U+4DC5",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "7",
+      "char": "U+4DC6",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "8",
+       "char": "U+4DC7",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "9",
+      "char": "U+4DC8",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "10",
+       "char": "U+4DC9",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "11",
+      "char": "U+4DCA",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "12",
+       "char": "U+4DCB",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "13",
+      "char": "U+4DCC",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "14",
+       "char": "U+4DCD",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "15",
+      "char": "U+4DCE",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "16",
+       "char": "U+4DCF",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "17",
+      "char": "U+4DD0",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "18",
+       "char": "U+4DD1",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "19",
+      "char": "U+4DD2",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "20",
+       "char": "U+4DD3",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "21",
+      "char": "U+4DD4",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "22",
+       "char": "U+4DD5",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "23",
+      "char": "U+4DD6",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "24",
+       "char": "U+4DD7",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "25",
+      "char": "U+4DD8",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "26",
+       "char": "U+4DD9",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "27",
+      "char": "U+4DDA",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "28",
+       "char": "U+4DDB",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "29",
+      "char": "U+4DDC",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "30",
+       "char": "U+4DDD",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "31",
+      "char": "U+4DDE",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "32",
+       "char": "U+4DDF",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "33",
+      "char": "U+4DE0",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "34",
+       "char": "U+4DE1",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "35",
+      "char": "U+4DE2",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "36",
+       "char": "U+4DE3",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "37",
+      "char": "U+4DE4",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "38",
+       "char": "U+4DE5",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "39",
+      "char": "U+4DE6",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "40",
+       "char": "U+4DE7",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "41",
+      "char": "U+4DE8",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "42",
+       "char": "U+4DE9",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "43",
+      "char": "U+4DEA",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "44",
+       "char": "U+4DEB",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "45",
+      "char": "U+4DEC",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "46",
+       "char": "U+4DED",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+      "bin": "111111",
+      "num": "47",
+      "char": "U+4DEE",
+      "name": "Nebe",
+      "upper": "nebe",
+      "lower": "nebe",
+      "moudro": "heh."
+    },
+    {
+       "bin": "000000",
+       "num": "48",
+       "char": "U+4DEF",
+       "name": "Země",
+       "upper": "země",
+       "lower": "země",
+       "moudro": "hehheh."
+    },
+    {
+        "bin": "000000",
+        "num": "49",
+        "char": "U+4DF0",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "50",
+       "char": "U+4DF1",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "51",
+        "char": "U+4DF2",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "52",
+       "char": "U+4DF3",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "53",
+        "char": "U+4DF4",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "54",
+       "char": "U+4DF5",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "55",
+        "char": "U+4DF6",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "56",
+       "char": "U+4DF7",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "57",
+        "char": "U+4DF8",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "58",
+       "char": "U+4DF9",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "59",
+        "char": "U+4DFA",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "60",
+       "char": "U+4DFB",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "61",
+        "char": "U+4DFC",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "62",
+       "char": "U+4DFD",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     },
+     {
+        "bin": "000000",
+        "num": "63",
+        "char": "U+4DFE",
+        "name": "Země",
+        "upper": "země",
+        "lower": "země",
+        "moudro": "hehheh."
+     },
+     {
+       "bin": "111111",
+       "num": "64",
+       "char": "U+4DFF",
+       "name": "Nebe",
+       "upper": "nebe",
+       "lower": "nebe",
+       "moudro": "heh."
+     }
+         
+  ]
+  

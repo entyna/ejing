@@ -36,3 +36,16 @@ for (let i = 0; i < 6; i++) {
   buttons.push(button);
   buttonContainer.appendChild(button);
 }
+
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Use the data from the JSON file
+    // ...
+  })
+  .catch(error => console.error('Error loading JSON file:', error));
+
+let hexButton = document.createElement("button");
+button.classList.toggle("hex-button");
+hexButton.textContent = getDataForYaoValues(yaoValues); // Replace `getDataForYaoValues` with the function that retrieves the content based on `yaoValues`
+hexButtonContainer.appendChild(hexButton);

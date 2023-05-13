@@ -11,10 +11,11 @@ class Particle {
       }
       this.vel = createVector();
       this.acc = createVector();
-      this.maxSpeed = 0.6;
+      this.maxSpeed = 3;
       this.yinSpeed = 0.1;
-      this.strokeThick = random(0.3, 1.5);
-      this.strokeCol = 200;
+      this.size = random(0.3, 1.5);
+      this.strokeThick = 0.3;
+      this.strokeCol = 150;
       this.fillCol = 0;
       this.lifeSpan = random(100, 200);
       this.isStopped = false;
@@ -69,17 +70,18 @@ class Particle {
     strokeWeight(this.strokeThick);
     fill(this.fillCol);
     
-    beginShape();
+    
     if (a > 250) {
       for (let i = 0; i < 4 && i < this.history.length; i++) {
-        vertex(this.history[i].x, this.history[i].y);
+        circle(this.history[i].x, this.history[i].y, this.size);
       }
     } else {
-     for (let i = 0; i < this.history.length; i++) {
-       vertex(this.history[i].x, this.history[i].y);
-     }
+      beginShape();
+      for (let i = 0; i < this.history.length; i++) {
+        vertex(this.history[i].x, this.history[i].y);
+      }
+      endShape();
     }
-     endShape();
     }
   
     isFinished() {

@@ -59,8 +59,21 @@ function draw() {
   //background(0);
   //background('rgba(0,0,0, 0.05)');
   //pg.background(200, 0, 200);
-  cg.background('blue');
-  //cg.circle(width/2, height/2, width/2, height/2);
+  cg.background('black');
+  for (let x = 0; x < pg.width; x+=80) {
+    for (let y = 0; y < pg.height; y+=60) {
+      let color = pg.get(x, y); // Get the color of the pixel
+      
+      // Check if the color is white (255, 255, 255)
+      if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
+        cg.fill('white');
+        cg.noStroke(255);
+        let noiseVal = noise(frameCount * 0.005);
+        diameter = map(noiseVal, 0, 1, 10, 60);
+        cg.circle(x, y, diameter);
+      }
+    }
+  }
   image(cg, 0, 0);
   pg.clear();
   pgFields();

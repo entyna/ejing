@@ -3,9 +3,13 @@
       "bin": "111111",
       "num": "1",
       "char": "U+4DC0",
-      "name": "Nebe",
+      "name": "Tvoření",
       "upper": "nebe",
       "lower": "nebe",
+      "kompl-num": "2",
+      "kompl-name": "Přijetí",
+      "op-num": "2",
+      "op-name": "Přijetí",
       "moudro": "heh."
     },
     {
@@ -15,6 +19,10 @@
        "name": "Země",
        "upper": "země",
        "lower": "země",
+       "kompl-num": "1",
+       "kompl-name": "Tvoření",
+       "op-num": "1",
+       "op-name": "Tvoření",
        "moudro": "hehheh."
     },
     {
@@ -24,6 +32,10 @@
       "name": "Rození",
       "upper": "voda",
       "lower": "bouře",
+      "kompl-num": "4",
+      "kompl-name": "Zrání",
+      "op-num": "50",
+      "op-name": "Založení nového",
       "moudro": "heh."
     },
     {
@@ -33,6 +45,10 @@
        "name": "Zrání",
        "upper": "hora",
        "lower": "voda",
+       "kompl-num": "3",
+       "kompl-name": "Rození",
+       "op-num": "49",
+       "op-name": "Převrat",
        "moudro": "hehheh."
     },
     {
@@ -42,6 +58,10 @@
       "name": "Očekávání",
       "upper": "voda",
       "lower": "nebe",
+      "kompl-num": "6",
+      "kompl-name": "Svár",
+      "op-num": "35",
+      "op-name": "Pokrok",
       "moudro": "heh."
     },
     {
@@ -51,6 +71,10 @@
        "name": "Svár",
        "upper": "nebe",
        "lower": "voda",
+       "kompl-num": "5",
+       "kompl-name": "Očekávání",
+       "op-num": "36",
+       "op-name": "Soumrak",
        "moudro": "hehheh."
     },
     {
@@ -60,6 +84,10 @@
       "name": "Vojsko",
       "upper": "země",
       "lower": "voda",
+      "kompl-num": "8",
+      "kompl-name": "Spojení",
+      "op-num": "13",
+      "op-name": "Lidské společenství",
       "moudro": "heh."
     },
     {
@@ -69,6 +97,10 @@
        "name": "Spojení",
        "upper": "voda",
        "lower": "země",
+       "kompl-num": "7",
+       "kompl-name": "Vojsko",
+       "op-num": "14",
+       "op-name": "Veliké držení",
        "moudro": "hehheh."
     },
     {
@@ -78,6 +110,10 @@
       "name": "Podrobení malého",
       "upper": "vítr",
       "lower": "nebe",
+      "kompl-num": "10",
+      "kompl-name": "Vykročení",
+      "op-num": "16",
+      "op-name": "Nadšení",
       "moudro": "heh."
     },
     {
@@ -87,6 +123,10 @@
        "name": "Vykročení",
        "upper": "nebe",
        "lower": "jezero",
+       "kompl-num": "9",
+       "kompl-name": "Podrobení malého",
+       "op-num": "15",
+       "op-name": "Skromnost",
        "moudro": "hehheh."
     },
     {
@@ -96,6 +136,10 @@
       "name": "Prosperita",
       "upper": "země",
       "lower": "nebe",
+      "kompl-num": "12",
+      "kompl-name": "Úpadek",
+      "op-num": "12",
+      "op-name": "Úpadek",
       "moudro": "heh."
     },
     {
@@ -105,6 +149,10 @@
        "name": "Úpadek",
        "upper": "nebe",
        "lower": "země",
+       "kompl-num": "11",
+       "kompl-name": "Prosperita",
+       "op-num": "11",
+       "op-name": "Prosperita",
        "moudro": "hehheh."
     },
     {
@@ -114,6 +162,10 @@
       "name": "Lidské společenství",
       "upper": "nebe",
       "lower": "oheň",
+      "kompl-num": "14",
+      "kompl-name": "Veliké držení",
+      "op-num": "7",
+      "op-name": "Vojsko",
       "moudro": "heh."
     },
     {
@@ -123,6 +175,10 @@
        "name": "Veliké držení",
        "upper": "oheň",
        "lower": "nebe",
+       "kompl-num": "13",
+       "kompl-name": "Lidské společenství",
+       "op-num": "8",
+       "op-name": "Spojení",
        "moudro": "hehheh."
     },
     {
@@ -132,6 +188,10 @@
       "name": "Skromnost",
       "upper": "země",
       "lower": "hora",
+      "kompl-num": "16",
+      "kompl-name": "Nadšení",
+      "op-num": "9",
+      "op-name": "Podrobení malého",
       "moudro": "heh."
     },
     {
@@ -141,6 +201,10 @@
        "name": "Nadšení",
        "upper": "bouře",
        "lower": "země",
+       "kompl-num": "15",
+       "kompl-name": "Skromnost",
+       "op-num": "9",
+       "op-name": "Podrobení malého",
        "moudro": "hehheh."
     },
     {
@@ -150,6 +214,10 @@
       "name": "Následování",
       "upper": "jezero",
       "lower": "bouře",
+      "kompl-num": "18",
+      "kompl-name": "Zkaženost",
+      "op-num": "18",
+      "op-name": "Zkaženost",
       "moudro": "heh."
     },
     {
@@ -159,6 +227,10 @@
        "name": "Zkaženost",
        "upper": "hora",
        "lower": "vítr",
+       "kompl-num": "17",
+       "kompl-name": "Následování",
+       "op-num": "17",
+       "op-name": "Následování",
        "moudro": "hehheh."
     },
     {
@@ -168,6 +240,10 @@
       "name": "Sblížení",
       "upper": "země",
       "lower": "jezero",
+      "kompl-num": "20",
+      "kompl-name": "Pozorování",
+      "op-num": "33",
+      "op-name": "Ústup",
       "moudro": "heh."
     },
     {
@@ -177,6 +253,10 @@
        "name": "Pozorování",
        "upper": "vítr",
        "lower": "země",
+       "kompl-num": "19",
+       "kompl-name": "Sblížení",
+       "op-num": "34",
+       "op-name": "Síla velkého",
        "moudro": "hehheh."
     },
     {
@@ -186,6 +266,10 @@
       "name": "Skousnutí",
       "upper": "oheň",
       "lower": "bouře",
+      "kompl-num": "22",
+      "kompl-name": "Půvab",
+      "op-num": "48",
+      "op-name": "Studna",
       "moudro": "heh."
     },
     {
@@ -195,6 +279,10 @@
        "name": "Půvab",
        "upper": "hora",
        "lower": "oheň",
+       "kompl-num": "21",
+       "kompl-name": "Skousnutí",
+       "op-num": "47",
+       "op-name": "Tíseň",
        "moudro": "hehheh."
     },
     {
@@ -204,6 +292,10 @@
       "name": "Odpadání",
       "upper": "hora",
       "lower": "země",
+      "kompl-num": "24",
+      "kompl-name": "Návraty",
+      "op-num": "43",
+      "op-name": "Rozhodnost",
       "moudro": "heh."
     },
     {
@@ -213,6 +305,10 @@
        "name": "Návraty",
        "upper": "země",
        "lower": "bouře",
+       "kompl-num": "23",
+       "kompl-name": "Odpadání",
+       "op-num": "44",
+       "op-name": "Setkání",
        "moudro": "hehheh."
     },
     {
@@ -222,6 +318,10 @@
       "name": "Nevinnost",
       "upper": "nebe",
       "lower": "bouře",
+      "kompl-num": "26",
+      "kompl-name": "Podrobení velkého",
+      "op-num": "46",
+      "op-name": "Stoupání",
       "moudro": "heh."
     },
     {
@@ -231,6 +331,10 @@
        "name": "Podrobení velkého",
        "upper": "hora",
        "lower": "nebe",
+       "kompl-num": "25",
+       "kompl-name": "Nevinnost",
+       "op-num": "45",
+       "op-name": "Shromáždění",
        "moudro": "hehheh."
     },
     {
@@ -240,6 +344,10 @@
       "name": "Čelisti",
       "upper": "hora",
       "lower": "bouře",
+      "kompl-num": "28",
+      "kompl-name": "Převaha velkého",
+      "op-num": "28",
+      "op-name": "Převaha velkého",
       "moudro": "heh."
     },
     {
@@ -249,6 +357,10 @@
        "name": "Převaha velkého",
        "upper": "jezero",
        "lower": "vítr",
+       "kompl-num": "27",
+       "kompl-name": "Čelisti",
+       "op-num": "27",
+       "op-name": "Čelisti",
        "moudro": "hehheh."
     },
     {
@@ -258,6 +370,10 @@
       "name": "Propadání",
       "upper": "voda",
       "lower": "voda",
+      "kompl-num": "30",
+      "kompl-name": "Záření",
+      "op-num": "30",
+      "op-name": "Záření",
       "moudro": "heh."
     },
     {
@@ -267,6 +383,10 @@
        "name": "Záření",
        "upper": "oheň",
        "lower": "oheň",
+       "kompl-num": "29",
+       "kompl-name": "Propadání",
+       "op-num": "29",
+       "op-name": "Propadání",
        "moudro": "hehheh."
     },
     {
@@ -276,6 +396,10 @@
       "name": "Přitažlivost",
       "upper": "jezero",
       "lower": "hora",
+      "kompl-num": "32",
+      "kompl-name": "Trvání",
+      "op-num": "41",
+      "op-name": "Ubývání",
       "moudro": "heh."
     },
     {
@@ -285,6 +409,10 @@
        "name": "Trvání",
        "upper": "bouře",
        "lower": "vítr",
+       "kompl-num": "31",
+       "kompl-name": "Přitažlivost",
+       "op-num": "42",
+       "op-name": "Přidání",
        "moudro": "hehheh."
     },
     {
@@ -294,6 +422,10 @@
       "name": "Ústup",
       "upper": "nebe",
       "lower": "hora",
+      "kompl-num": "34",
+      "kompl-name": "Síla velkého",
+      "op-num": "19",
+      "op-name": "Sblížení",
       "moudro": "heh."
     },
     {
@@ -303,6 +435,10 @@
        "name": "Síla velkého",
        "upper": "bouře",
        "lower": "nebe",
+       "kompl-num": "33",
+       "kompl-name": "Ústup",
+       "op-num": "20",
+       "op-name": "Pozorování",
        "moudro": "hehheh."
     },
     {
@@ -312,6 +448,10 @@
       "name": "Pokrok",
       "upper": "oheň",
       "lower": "země",
+      "kompl-num": "36",
+      "kompl-name": "Soumrak",
+      "op-num": "5",
+      "op-name": "Očekávání",
       "moudro": "heh."
     },
     {
@@ -321,6 +461,10 @@
        "name": "Soumrak",
        "upper": "země",
        "lower": "oheň",
+       "kompl-num": "35",
+       "kompl-name": "Pokrok",
+       "op-num": "6",
+       "op-name": "Svár",
        "moudro": "hehheh."
     },
     {
@@ -330,6 +474,10 @@
       "name": "Rodina",
       "upper": "vítr",
       "lower": "oheň",
+      "kompl-num": "38",
+      "kompl-name": "Vzdálení",
+      "op-num": "40",
+      "op-name": "Uvolnění",
       "moudro": "heh."
     },
     {
@@ -339,6 +487,10 @@
        "name": "Vzdálení",
        "upper": "oheň",
        "lower": "jezero",
+       "kompl-num": "37",
+       "kompl-name": "Rodina",
+       "op-num": "39",
+       "op-name": "Překážka",
        "moudro": "hehheh."
     },
     {
@@ -348,6 +500,10 @@
       "name": "Překážka",
       "upper": "voda",
       "lower": "hora",
+      "kompl-num": "40",
+      "kompl-name": "Uvolnění",
+      "op-num": "38",
+      "op-name": "Vzdálení",
       "moudro": "heh."
     },
     {
@@ -357,6 +513,10 @@
        "name": "Uvolnění",
        "upper": "bouře",
        "lower": "voda",
+       "kompl-num": "39",
+       "kompl-name": "Překážka",
+       "op-num": "37",
+       "op-name": "Rodina",
        "moudro": "hehheh."
     },
     {
@@ -366,6 +526,10 @@
       "name": "Ubývání",
       "upper": "hora",
       "lower": "jezero",
+      "kompl-num": "42",
+      "kompl-name": "Přidání",
+      "op-num": "31",
+      "op-name": "Přitažlivost",
       "moudro": "heh."
     },
     {
@@ -375,6 +539,10 @@
        "name": "Přidání",
        "upper": "vítr",
        "lower": "bouře",
+       "kompl-num": "41",
+       "kompl-name": "Ubývání",
+       "op-num": "32",
+       "op-name": "Trvání",
        "moudro": "hehheh."
     },
     {
@@ -384,15 +552,23 @@
       "name": "Rozhodnost",
       "upper": "jezero",
       "lower": "nebe",
+      "kompl-num": "44",
+      "kompl-name": "Setkání",
+      "op-num": "23",
+      "op-name": "Odpadání",
       "moudro": "heh."
     },
     {
        "bin": "011111",
        "num": "44",
        "char": "U+4DEB",
-       "name": "Spojení",
+       "name": "Setkání",
        "upper": "nebe",
        "lower": "vítr",
+       "kompl-num": "43",
+       "kompl-name": "Rozhodnost",
+       "op-num": "24",
+       "op-name": "Návraty",
        "moudro": "hehheh."
     },
     {
@@ -402,6 +578,10 @@
       "name": "Shromáždění",
       "upper": "jezero",
       "lower": "země",
+      "kompl-num": "46",
+      "kompl-name": "Stoupání",
+      "op-num": "26",
+      "op-name": "Podrobení velkého",
       "moudro": "heh."
     },
     {
@@ -411,6 +591,10 @@
        "name": "Stoupání",
        "upper": "země",
        "lower": "vítr",
+       "kompl-num": "45",
+       "kompl-name": "Shromáždění",
+       "op-num": "25",
+       "op-name": "Nevinnost",
        "moudro": "hehheh."
     },
     {
@@ -420,6 +604,10 @@
       "name": "Tíseň",
       "upper": "jezero",
       "lower": "voda",
+      "kompl-num": "48",
+      "kompl-name": "Studna",
+      "op-num": "22",
+      "op-name": "Půvab",
       "moudro": "heh."
     },
     {
@@ -429,6 +617,10 @@
        "name": "Studna",
        "upper": "voda",
        "lower": "vítr",
+       "kompl-num": "47",
+       "kompl-name": "Tíseň",
+       "op-num": "21",
+       "op-name": "Skousnutí",
        "moudro": "hehheh."
     },
     {
@@ -438,15 +630,23 @@
         "name": "Převrat",
         "upper": "jezero",
         "lower": "oheň",
+        "kompl-num": "50",
+        "kompl-name": "Založení nového",
+        "op-num": "4",
+        "op-name": "Zrání",
         "moudro": "hehheh."
      },
      {
        "bin": "011101",
        "num": "50",
        "char": "U+4DF1",
-       "name": "Kotel",
+       "name": "Založení nového",
        "upper": "oheň",
        "lower": "vítr",
+       "kompl-num": "49",
+       "kompl-name": "Převrat",
+       "op-num": "3",
+       "op-name": "Rození",
        "moudro": "heh."
      },
      {
@@ -456,6 +656,10 @@
         "name": "Bouře",
         "upper": "bouře",
         "lower": "bouře",
+        "kompl-num": "52",
+        "kompl-name": "Stání",
+        "op-num": "57",
+        "op-name": "Pronikání",
         "moudro": "hehheh."
      },
      {
@@ -465,6 +669,10 @@
        "name": "Stání",
        "upper": "hora",
        "lower": "hora",
+       "kompl-num": "51",
+       "kompl-name": "Bouře",
+       "op-num": "58",
+       "op-name": "Radost",
        "moudro": "heh."
      },
      {
@@ -474,6 +682,10 @@
         "name": "Plynutí",
         "upper": "vítr",
         "lower": "hora",
+        "kompl-num": "54",
+        "kompl-name": "Provdání",
+        "op-num": "54",
+        "op-name": "Provdání",
         "moudro": "hehheh."
      },
      {
@@ -483,6 +695,10 @@
        "name": "Provdání",
        "upper": "bouře",
        "lower": "jezero",
+       "kompl-num": "53",
+       "kompl-name": "Plynutí",
+       "op-num": "53",
+       "op-name": "Plynutí",
        "moudro": "heh."
      },
      {
@@ -492,6 +708,10 @@
         "name": "Hojnost",
         "upper": "bouře",
         "lower": "oheň",
+        "kompl-num": "56",
+        "kompl-name": "Putování",
+        "op-num": "59",
+        "op-name": "Odloučení",
         "moudro": "hehheh."
      },
      {
@@ -501,6 +721,10 @@
        "name": "Putování",
        "upper": "oheň",
        "lower": "hora",
+       "kompl-num": "55",
+       "kompl-name": "Hojnost",
+       "op-num": "60",
+       "op-name": "Omezení",
        "moudro": "heh."
      },
      {
@@ -510,6 +734,10 @@
         "name": "Pronikání",
         "upper": "vítr",
         "lower": "vítr",
+        "kompl-num": "58",
+        "kompl-name": "Radost",
+        "op-num": "51",
+        "op-name": "Bouře",
         "moudro": "hehheh."
      },
      {
@@ -519,6 +747,10 @@
        "name": "Radost",
        "upper": "jezero",
        "lower": "jezero",
+       "kompl-num": "57",
+       "kompl-name": "Pronikání",
+       "op-num": "52",
+       "op-name": "Stání",
        "moudro": "heh."
      },
      {
@@ -528,6 +760,10 @@
         "name": "Odloučení",
         "upper": "vítr",
         "lower": "voda",
+        "kompl-num": "60",
+        "kompl-name": "Omezení",
+        "op-num": "55",
+        "op-name": "Hojnost",
         "moudro": "hehheh."
      },
      {
@@ -537,6 +773,10 @@
        "name": "Omezení",
        "upper": "voda",
        "lower": "jezero",
+       "kompl-num": "59",
+       "kompl-name": "Odloučení",
+       "op-num": "56",
+       "op-name": "Putování",
        "moudro": "heh."
      },
      {
@@ -546,6 +786,10 @@
         "name": "Vnitřní opravdovost",
         "upper": "vítr",
         "lower": "jezero",
+        "kompl-num": "62",
+        "kompl-name": "Převaha malého",
+        "op-num": "62",
+        "op-name": "Převaha malého",
         "moudro": "hehheh."
      },
      {
@@ -555,6 +799,10 @@
        "name": "Převaha malého",
        "upper": "bouře",
        "lower": "hora",
+       "kompl-num": "61",
+       "kompl-name": "Vnitřní opravdovost",
+       "op-num": "61",
+       "op-name": "Vnitřní opravdovost",
        "moudro": "heh."
      },
      {
@@ -564,6 +812,10 @@
         "name": "Ukončení",
         "upper": "voda",
         "lower": "oheň",
+        "kompl-num": "64",
+        "kompl-name": "Nedokončení",
+        "op-num": "64",
+        "op-name": "Nedokončení",
         "moudro": "hehheh."
      },
      {
@@ -573,6 +825,10 @@
        "name": "Nedokončení",
        "upper": "oheň",
        "lower": "voda",
+       "kompl-num": "63",
+       "kompl-name": "Ukončení",
+       "op-num": "63",
+       "op-name": "Ukončení",
        "moudro": "heh."
      }
          

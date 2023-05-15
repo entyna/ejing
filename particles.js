@@ -36,7 +36,7 @@ class Particle {
       this.vel.add(this.acc);
       this.vel.limit(this.maxSpeed);
       this.pos.add(this.vel);
-    } else if (a >= 50 && a <= 250) {
+    } else if (a >= 45 && a <= 250) {
       //YANG
       this.isStopped = true;
     } else if (a > 250) {

@@ -56,7 +56,7 @@ shinyYang();
 // FIELDS  
 pg.clear();
 pgFields();
-image(pg, 0, 0);
+image(pg, 0, 0, width, height);
   
 // PARTICLES
 // Add new particles
@@ -89,20 +89,20 @@ pop();
 }
 
 function shinyYang() {
-  cg.background('black');
+  cg.background('rgba(0, 0, 0, 0.5)');
   cg.noStroke();
   let noiseVal = noise(frameCount * 0.005);
-  diameter = map(noiseVal, 0, 1, 10, 60);
+  diameter = map(noiseVal, 0, 1, 6, 40);
   d2 = map(noiseVal, 0, 1, 0.2, 0.7);
-  cg.fill(200, 40);
+  cg.fill(200, 45);
   cg.ellipse(width/2, height/2, width*d2, height*d2);
   cg.ellipse(50, -50, width*d2, height*d2);
     
-  for (let x = 0; x < pg.width; x+=height/5) {
-    for (let y = 0; y < pg.height; y+=height/5) {
+  for (let x = 0; x < pg.width; x+=height/6) {
+    for (let y = 0; y < pg.height; y+=height/6) {
       let color = pg.get(x, y);
       if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
-        cg.fill('200');
+        cg.fill('255');
         cg.circle(x, y, diameter);
       }
     }
@@ -129,7 +129,7 @@ function fieldOpacity(valueA, valueB) {
   if (valueA === 0 && valueB === 0) {
     return 255;
   } else if (valueA === 1 && valueB === 1) {
-    return 50;
+    return 45;
   } else if (valueA === 1 && valueB === 0) {
     return 2;
   } else if (valueA === 0 && valueB === 1) {

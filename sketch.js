@@ -60,7 +60,7 @@ image(pg, 0, 0, width, height);
   
 // PARTICLES
 // Add new particles
-if (particles.length < 150) {
+if (particles.length < 200) {
   for (let i = 0; i < 10; i++) {
     let p = new Particle();
     particles.push(p);
@@ -94,7 +94,7 @@ function shinyYang() {
   let noiseVal = noise(frameCount * 0.005);
   diameter = map(noiseVal, 0, 1, 6, 40);
   d2 = map(noiseVal, 0, 1, 0.2, 0.7);
-  cg.fill(200, 45);
+  cg.fill(230, 45);
   cg.ellipse(width/2, height/2, width*d2, height*d2);
   cg.ellipse(50, -50, width*d2, height*d2);
     

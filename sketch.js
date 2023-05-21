@@ -60,7 +60,7 @@ image(pg, 0, 0, width, height);
   
 // PARTICLES
 // Add new particles
-if (particles.length < 200) {
+if (particles.length < 250) {
   for (let i = 0; i < 10; i++) {
     let p = new Particle();
     particles.push(p);
@@ -93,7 +93,7 @@ function shinyYang() {
   cg.noStroke();
   let noiseVal = noise(frameCount * 0.005);
   diameter = map(noiseVal, 0, 1, 6, 40);
-  // d2 = map(noiseVal, 0, 1, 0.2, 0.7);
+  d2 = map(noiseVal, 0, 1, 20, 60);
   // cg.fill(230, 45);
   // cg.ellipse(width/2, height/2, width*d2, height*d2);
   // cg.ellipse(50, -50, width*d2, height*d2);
@@ -104,6 +104,15 @@ function shinyYang() {
       if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
         cg.fill('255');
         cg.circle(x, y, diameter);
+      }
+    }
+  }
+  for (let x = 0; x < pg.width; x+=height/2) {
+    for (let y = height/12; y < pg.height; y+=height/2) {
+      let color = pg.get(x, y);
+      if (color[0] === 0 && color[1] === 0 && color[2] === 0) {
+        cg.fill(230, 15);
+        cg.circle(x, y, 300);
       }
     }
   }
@@ -138,7 +147,7 @@ function fieldOpacity(valueA, valueB) {
 }
 
 function pgFields() {
-  let fieldStroke = 100;
+  let fieldStroke = 150;
   let fieldWeight = 0.8;
  
   pg.stroke(fieldStroke);

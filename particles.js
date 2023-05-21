@@ -13,10 +13,10 @@ class Particle {
       this.acc = createVector();
       this.maxSpeed = 0.02;
       this.yinSpeed = 0.002;
-      this.size = random(1, 2.5);
-      this.strokeThick = 0.7;
-      this.strokeCol = 180;
+      this.size = random(1.5, 3);
+      this.strokeThick = 0.9;
       this.colOptions = [0, 180];
+      this.strokeCol = random(this.colOptions);
       this.fillCol = random(this.colOptions);
       this.lifeSpan = random(100, 200);
       this.isStopped = false;
@@ -56,9 +56,12 @@ class Particle {
       this.vel.limit(this.maxSpeed);
       this.pos.add(this.vel.mult(deltaTime));
     }
-    // else {
-    //   this.isStopped = true;
-    // }
+    else if (a===0){
+      let index = particles.indexOf(this);
+      if (index !== -1) {
+        particles.splice(index, 1);
+      }
+    }
 
     
     this.lifeSpan -= 1;
@@ -73,9 +76,7 @@ class Particle {
     display() {
      let c = pg.get(floor(this.pos.x), floor(this.pos.y));
      let a = alpha(c);
-    
-    
-    
+     let r = red(c);
     
     if (a > 250) {
       fill(255);

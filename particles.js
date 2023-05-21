@@ -14,14 +14,14 @@ class Particle {
       this.maxSpeed = 0.02;
       this.yinSpeed = 0.002;
       this.size = random(1.5, 3);
-      this.strokeThick = 0.9;
+      this.strokeThick = 0.4;
       this.colOptions = [0, 180];
-      this.strokeCol = random(this.colOptions);
-      this.fillCol = random(this.colOptions);
-      this.lifeSpan = random(100, 200);
+      this.strokeCol = 200;
+      this.fillCol = 0;
+      this.lifeSpan = random(200, 300);
       this.isStopped = false;
       this.history = [];
-      this.historyLength = height/40;
+      this.historyLength = height*0.1;
 
     this.yinAngle = random(TWO_PI);
     }

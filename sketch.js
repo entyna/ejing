@@ -147,8 +147,8 @@ function fieldOpacity(valueA, valueB) {
 }
 
 function pgFields() {
-  let fieldStroke = 150;
-  let fieldWeight = 0.8;
+  let fieldStroke = 100;
+  let fieldWeight = 0.6;
  
   pg.stroke(fieldStroke);
   pg.strokeWeight(fieldWeight);

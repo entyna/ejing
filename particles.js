@@ -11,16 +11,17 @@ class Particle {
       }
       this.vel = createVector();
       this.acc = createVector();
-      this.maxSpeed = 3;
-      this.yinSpeed = 0.1;
-      this.size = random(0.3, 1.5);
-      this.strokeThick = 0.3;
+      this.maxSpeed = 0.02;
+      this.yinSpeed = 0.002;
+      this.size = random(1, 2.5);
+      this.strokeThick = 0.7;
       this.strokeCol = 180;
-      this.fillCol = 0;
+      this.colOptions = [0, 180];
+      this.fillCol = random(this.colOptions);
       this.lifeSpan = random(100, 200);
       this.isStopped = false;
       this.history = [];
-      this.historyLength = 50;
+      this.historyLength = height/40;
 
     this.yinAngle = random(TWO_PI);
     }
@@ -30,28 +31,34 @@ class Particle {
     let r = red(c);
     let a = alpha(c);
  
-    if (a >= 0 && a <= 1) {
+    if (a > 0 && a < 2) {
       // UP
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * PI).mult(0.2));
-      this.vel.add(this.acc);
+      this.vel.add(this.acc.mult(deltaTime)); // Multiply acceleration by deltaTime
       this.vel.limit(this.maxSpeed);
-      this.pos.add(this.vel);
-    } else if (a >= 45 && a <= 250) {
+      this.pos.add(this.vel.mult(deltaTime));
+    } else if (r >= 200) {
       //YANG
-      this.isStopped = true;
-    } else if (a > 250) {
+      let index = particles.indexOf(this);
+      if (index !== -1) {
+        particles.splice(index, 1);
+      }
+    } else if (r === 0 && a===255) {
       //YIN
       this.acc.set(p5.Vector.fromAngle(this.yinAngle).mult(0.2));
-      this.vel.add(this.acc);
+      this.vel.add(this.acc.mult(deltaTime));
       this.vel.limit(this.yinSpeed);
-      this.pos.add(this.vel);
-    } else {
+      this.pos.add(this.vel.mult(deltaTime));
+    } else if (a > 2 && a < 5) {
       // DOWN
       this.acc.set(p5.Vector.fromAngle(noise(this.pos.x * 0.01, this.pos.y * 0.01) * -PI).mult(0.2));
-      this.vel.add(this.acc);
+      this.vel.add(this.acc.mult(deltaTime)); // Multiply acceleration by deltaTime
       this.vel.limit(this.maxSpeed);
-      this.pos.add(this.vel);
+      this.pos.add(this.vel.mult(deltaTime));
     }
+    // else {
+    //   this.isStopped = true;
+    // }
 
     
     this.lifeSpan -= 1;
@@ -66,16 +73,18 @@ class Particle {
     display() {
      let c = pg.get(floor(this.pos.x), floor(this.pos.y));
      let a = alpha(c);
-    stroke(this.strokeCol);
-    strokeWeight(this.strokeThick);
-    fill(this.fillCol);
+    
+    
     
     
     if (a > 250) {
-      for (let i = 0; i < 4 && i < this.history.length; i++) {
-        circle(this.history[i].x, this.history[i].y, this.size);
-      }
+      fill(255);
+      noStroke();
+      circle(this.pos.x, this.pos.y, this.size);
     } else {
+      fill(this.fillCol);
+      stroke(this.strokeCol);
+      strokeWeight(this.strokeThick);
       beginShape();
       for (let i = 0; i < this.history.length; i++) {
         vertex(this.history[i].x, this.history[i].y);

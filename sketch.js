@@ -93,13 +93,13 @@ function shinyYang() {
   cg.noStroke();
   let noiseVal = noise(frameCount * 0.005);
   diameter = map(noiseVal, 0, 1, 6, 40);
-  d2 = map(noiseVal, 0, 1, 0.2, 0.7);
-  cg.fill(230, 45);
-  cg.ellipse(width/2, height/2, width*d2, height*d2);
-  cg.ellipse(50, -50, width*d2, height*d2);
+  // d2 = map(noiseVal, 0, 1, 0.2, 0.7);
+  // cg.fill(230, 45);
+  // cg.ellipse(width/2, height/2, width*d2, height*d2);
+  // cg.ellipse(50, -50, width*d2, height*d2);
     
-  for (let x = 0; x < pg.width; x+=height/6) {
-    for (let y = 0; y < pg.height; y+=height/6) {
+  for (let x = 0; x < pg.width; x+=height/7) {
+    for (let y = height/12; y < pg.height; y+=height/7) {
       let color = pg.get(x, y);
       if (color[0] === 255 && color[1] === 255 && color[2] === 255) {
         cg.fill('255');
@@ -119,7 +119,7 @@ function fieldColor(valueA, valueB) {
   } else if (valueA === 1 && valueB === 1) {
     return 255;
   } else if (valueA === 1 && valueB === 0) {
-    return 1;
+    return 3;
   } else if (valueA === 0 && valueB === 1) {
     return 1;
   }
@@ -131,7 +131,7 @@ function fieldOpacity(valueA, valueB) {
   } else if (valueA === 1 && valueB === 1) {
     return 45;
   } else if (valueA === 1 && valueB === 0) {
-    return 2;
+    return 3;
   } else if (valueA === 0 && valueB === 1) {
     return 1;
   }
@@ -139,7 +139,7 @@ function fieldOpacity(valueA, valueB) {
 
 function pgFields() {
   let fieldStroke = 100;
-  let fieldWeight = 0.5;
+  let fieldWeight = 0.8;
  
   pg.stroke(fieldStroke);
   pg.strokeWeight(fieldWeight);
@@ -202,7 +202,7 @@ function graphLine() {
   push();
   stroke(255);
   fill(0)
-  strokeWeight(1);
+  strokeWeight(1.5);
   for (let i = 0; i < points.length - 1; i++) {
     let startX = points[i][0] * xScale + xShift;
     let startY = height - points[i][1] * yScale - yShift;
